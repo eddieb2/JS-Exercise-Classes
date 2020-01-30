@@ -55,7 +55,7 @@ class Person {
     return this.stomach.length = 0;
   }
   toString() {
-    return `${this.name}, ${this.age}`
+    return `${this.name}, ${this.age}`;
   }
 }
 
@@ -94,10 +94,10 @@ class Car {
       return `I ran out of fuel at ${this.odometer} miles!`;
     } else if (this.odometer === driveableMiles){
       this.tank = 0;
-      return `We ran out of fuel at ${this.odometer} miles.`
+      return `We ran out of fuel at ${this.odometer} miles.`;
     } else {
       this.tank = this.tank - gallonsUsed;
-      return `We didn't run out of gas.`
+      return `We didn't run out of gas.`;
     }
   };
 }
@@ -121,7 +121,7 @@ class Lambdasian {
     this.location = attrs.location;
   }
   speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}.`
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
   }
 }
 
@@ -147,11 +147,11 @@ class Instructor extends Lambdasian {
     this.catchPhrase = attrs.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${subject}`
+    return `Today we are learning about ${subject}`;
   }
   // look into destructuring 
   grade(student={name}, subject) {
-    return `${student.name} receives a perfect score on ${subject}`
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
 
@@ -184,11 +184,11 @@ class Student extends Lambdasian{
   }
   PRAssignment(subject) {
     // a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
-    return `${this.name} has submitted a PR for ${subject}.`
+    return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject) {
     // similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}
-    return `${this.name} has begun sprint challenge on ${subject}.`
+    return `${this.name} has begun sprint challenge on ${subject}.`;
   }
 }
 
@@ -205,8 +205,20 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attrs) {
+    super(attrs);
+    this.gradClassName = attrs.gradClassName;
+    this.favInstructor = attrs.favInstructor;
+  }
+  standUp(slackChannel) {
+    // a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+  }
+  debugsCode(student, subject) {
+    //  a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`
+  }
 }
 
 /*
